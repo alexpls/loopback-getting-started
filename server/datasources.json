@@ -10,7 +10,8 @@
     "password": "",
     "name": "mysqlDS",
     "user": "root",
-    "connector": "mysql"
+    "connector": "mysql",
+    "createDatabase": true
   },
   "mongoDs": {
     "host": "127.0.0.1",
