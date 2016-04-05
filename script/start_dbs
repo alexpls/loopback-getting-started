@@ -1,0 +1,16 @@
+#!/bin/bash
+
+set -e
+
+mysql.server start
+
+echo "Starting MongoDB"
+
+if pgrep "mongod" > /dev/null; then
+  echo "  MongoDB was already running"
+else
+  mongod --config /usr/local/etc/mongod.conf 2>/tmp/mongo-stdout.log 1>/tmp/mongo-stderr.log &
+  MONGO_PID=$(pgrep "mongod")
+  echo " SUCCESS! ${MONGO_PID}"
+fi
+
